@@ -1,0 +1,3 @@
+variables:
+  appLabels:
+    app: shiny-demo

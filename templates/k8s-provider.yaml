@@ -1,0 +1,9 @@
+configuration:
+  kubeconfig:
+    type: String
+    default: ~/.kube/config
+resources:
+  k8sProvider:
+    type: pulumi:providers:kubernetes
+    properties:
+      kubeconfig: ${kubeconfig}

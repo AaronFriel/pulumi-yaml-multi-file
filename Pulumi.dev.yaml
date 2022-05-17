@@ -1,0 +1,3 @@
+config:
+  shinyapp:serviceNodePort: "32525"
+  shinyapp:serviceType: NodePort

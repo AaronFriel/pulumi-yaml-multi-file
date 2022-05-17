@@ -1,0 +1,5 @@
+resources:
+  shiny:
+    type: kubernetes:core/v1:Namespace
+    options:
+      provider: ${k8sProvider}

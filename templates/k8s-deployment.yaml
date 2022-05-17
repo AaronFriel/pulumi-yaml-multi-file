@@ -1,0 +1,24 @@
+configuration:
+  imageName:
+    default: docker.io/afriel/demo-img:latest
+resources:
+  app:
+    type: kubernetes:apps/v1:Deployment
+    properties:
+      metadata:
+        namespace: ${shiny.metadata.name}
+      spec:
+        selector:
+          matchLabels: ${appLabels}
+        replicas: 1
+        template:
+          metadata:
+            labels: ${appLabels}
+          spec:
+            containers:
+              - name: app
+                image: "${imageName}"
+                ports:
+                - containerPort: 80
+    options:
+      provider: ${k8sProvider}

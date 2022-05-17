@@ -1,0 +1,5 @@
+name: shinyapp
+runtime:
+  name: yaml
+  options:
+    compiler: ./merge-yaml.sh

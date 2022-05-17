@@ -1,0 +1,22 @@
+configuration:
+  serviceNodePort:
+    type: Number
+  serviceType:
+    type: String
+resources:
+  service:
+    type: kubernetes:core/v1:Service
+    properties:
+      metadata:
+        namespace: ${shiny.metadata.name}
+        labels: ${appLabels}
+      spec:
+        type: ${serviceType}
+        ports:
+          - nodePort: ${serviceNodePort}
+            port: 80
+            targetPort: 80
+            protocol: "TCP"
+        selector: ${appLabels}
+    options:
+      provider: ${k8sProvider}
